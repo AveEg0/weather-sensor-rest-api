@@ -1,7 +1,7 @@
 ## Overview
 This API implements such functions as adding sensor, adding measurements of weather (temperature and raining) and receving them
 
-##Before start
+## Before start
 You need to replace application.origin.properties with application.properties. You must just create application.properties in the same directory and copy paste
 into it all text from application.origin.properties replacing '{property}' to your own settings.
 
