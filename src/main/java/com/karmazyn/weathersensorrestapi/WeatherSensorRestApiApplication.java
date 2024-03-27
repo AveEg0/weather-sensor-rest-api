@@ -1,5 +1,7 @@
 package com.karmazyn.weathersensorrestapi;
 
+import com.karmazyn.weathersensorrestapi.dto.MeasurementDTO;
+import com.karmazyn.weathersensorrestapi.models.Measurement;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +17,12 @@ public class WeatherSensorRestApiApplication {
 
     @Bean
     public ModelMapper modelMapper() {
-        return new ModelMapper();
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.createTypeMap(MeasurementDTO.class, Measurement.class)
+                .addMapping(MeasurementDTO::getSensor, Measurement::setSensor);
+
+        modelMapper.createTypeMap(Measurement.class, MeasurementDTO.class)
+                .addMapping(Measurement::getSensor, MeasurementDTO::setSensor);
+        return modelMapper;
     }
 }
