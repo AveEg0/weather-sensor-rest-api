@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "sensor")
@@ -20,6 +20,7 @@ public class Sensor {
     @Column(name = "name")
     private String name;
 
+
     @OneToMany(mappedBy = "sensor")
-    private Set<Measurement> measurements;
+    private List<Measurement> measurements;
 }

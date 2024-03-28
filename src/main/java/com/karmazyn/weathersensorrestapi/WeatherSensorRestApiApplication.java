@@ -17,12 +17,6 @@ public class WeatherSensorRestApiApplication {
 
     @Bean
     public ModelMapper modelMapper() {
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.createTypeMap(MeasurementDTO.class, Measurement.class)
-                .addMapping(MeasurementDTO::getSensor, Measurement::setSensor);
-
-        modelMapper.createTypeMap(Measurement.class, MeasurementDTO.class)
-                .addMapping(Measurement::getSensor, MeasurementDTO::setSensor);
-        return modelMapper;
+        return new ModelMapper();
     }
 }

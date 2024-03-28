@@ -1,6 +1,5 @@
 package com.karmazyn.weathersensorrestapi.dto;
 
-import com.karmazyn.weathersensorrestapi.models.Sensor;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,5 +14,5 @@ public class MeasurementDTO {
     private boolean raining;
 
     @NotNull
-    private Sensor sensor;
+    private SensorDTO sensor;
 }

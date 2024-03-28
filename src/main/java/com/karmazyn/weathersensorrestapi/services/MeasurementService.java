@@ -5,6 +5,8 @@ import com.karmazyn.weathersensorrestapi.repositories.MeasurementsRepository;
 import com.karmazyn.weathersensorrestapi.util.MeasurementNotFoundException;
 import com.karmazyn.weathersensorrestapi.util.SensorNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Limit;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
@@ -24,6 +26,14 @@ public class MeasurementService {
 
     public List<Measurement> findAll() {
         return measurementsRepository.findAll();
+    }
+
+    public List<Measurement> findAll(Sort sort) {
+        return measurementsRepository.findAll(sort);
+    }
+
+    public List<Measurement> findAllWithLimit() {
+        return measurementsRepository.findAllWithLimit();
     }
 
     public Measurement findOne(int id) {
